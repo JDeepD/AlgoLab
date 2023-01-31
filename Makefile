@@ -1,15 +1,20 @@
 CC = gcc
-ALGOFILE = day1/mergesort.c
-OBJECTS = dist/main.o dist/helper.o
+DIR = dist/
+DAY = day1
+SRCS := main.c $(wildcard $(DAY)/*.c)  
+OBJS := $(SRCS:.c=.o)
+OBJS := $(addprefix $(DIR), $(OBJS))
 
-mainapp: main.o helper.o
-	$(CC) $(OBJECTS) -o a.exe
+compile: $(OBJS)
+	@$(CC) $(OBJS) -o a.exe
+	@echo Output:
+	@./a.exe
 
-main.o: main.c
-	$(CC) -c main.c -o dist/main.o
+$(DIR)main.o : main.c
+	@$(CC) -c main.c -o dist/main.o
 
-helper.o: $(ALGOFILE)
-	$(CC) -c $(ALGOFILE) -o dist/helper.o
+$(DIR)$(DAY)/%.o: $(DAY)/%.c
+		@$(CC) -c $< -o $@
 
 clean:
-	rm -rf dist/*
+	rm -rf dist/$(DAY)/*
