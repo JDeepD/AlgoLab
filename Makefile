@@ -11,10 +11,12 @@ compile: $(OBJS)
 	@./a.exe
 
 $(DIR)main.o : main.c
-	@$(CC) -c main.c -o dist/main.o
+	@mkdir -p $(DIR) 
+	@$(CC) -c main.c -o $(DIR)main.o
 
 $(DIR)$(DAY)/%.o: $(DAY)/%.c
-		@$(CC) -c $< -o $@
+	@mkdir -p $(DIR)$(DAY)
+	@$(CC) -c $< -o $@
 
 clean:
 	rm -rf dist/$(DAY)/*
