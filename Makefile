@@ -1,7 +1,7 @@
 CC = gcc
 DIR = dist
-DAY = day1
-SRCS := main.c $(wildcard $(DAY)/*.c)  
+DAY = day2
+SRCS := main.c $(wildcard $(DAY)/*.c) $(wildcard utils/*.c)
 OBJS := $(SRCS:.c=.o)
 OBJS := $(addprefix $(DIR)/, $(OBJS))
 
@@ -16,6 +16,10 @@ $(DIR)/main.o : main.c
 
 $(DIR)/$(DAY)/%.o: $(DAY)/%.c
 	@mkdir -p $(DIR)/$(DAY)
+	@$(CC) -c $< -o $@
+
+$(DIR)/utils/%.o : utils/%.c
+	@mkdir -p $(DIR)/utils
 	@$(CC) -c $< -o $@
 
 clean:

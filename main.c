@@ -1,11 +1,21 @@
 #include "common.h"
-#include "day1/algorithm.h"
+#include "utils/utils.h"
+#include "day2/algorithm.h"
 
 int main(void){
-    int arr[5] = {1, 4, 5, -2, -8};
-    printf("%d\n", binarysearch(arr, 5, 5));
-    mergesort(arr, 0, 4);
-    FOR(5)
-        printf("%d ", arr[i]);
+    // int len = 10;
+    // int arr[] = {1, 0, -1, 22, 12, 3, 4, 19, 99, 10};
+    // int *indexes = getIndex(arr, len);
 
+    // printf("Original Array: ");
+    // FOR(len){
+    //     printf("%d ", arr[i]);
+    // }
+    // printf("\n");
+    // FOR(len){
+    //     printf("%d ", indexes[i]);
+    // }
+    // free(indexes);
+    int lens[] = {20, 24, 30, 35, 50};
+    printf("Max Comparisons: %d", maxComp(lens, 5));
 }
