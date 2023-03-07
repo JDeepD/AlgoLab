@@ -1,6 +1,6 @@
 CC = gcc
 DIR = dist
-DAY = day3
+DAY = day4
 SRCS := main.c $(wildcard $(DAY)/*.c) $(wildcard utils/*.c)
 OBJS := $(SRCS:.c=.o)
 OBJS := $(addprefix $(DIR)/, $(OBJS))
